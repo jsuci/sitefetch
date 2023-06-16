@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "759507507122",
+    "project_id": "sitefetch",
+    "storage_bucket": "sitefetch.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:759507507122:android:30cc2ff286c454ea0b36ab",
+        "android_client_info": {
+          "package_name": "com.sitefetch"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "759507507122-j247852mtr32bsbuud4eadt5smk65r60.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sitefetch",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "759507507122-vsi8nqvsdni24ncghvvtvvktr64d28gh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGRr8OZnVvuivP_hqtddUCH6ylxmH0cR0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "759507507122-vsi8nqvsdni24ncghvvtvvktr64d28gh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
