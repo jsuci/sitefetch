@@ -1,11 +1,14 @@
-# SiteFetch
+# Expo Router Example
 
-SiteFetch is a web application designed to streamline your blogging experience. It allows you to fetch blog posts from other websites, repost them with your own customization, manage your blogger blog, and schedule posts for automated publishing.
+Use [`expo-router`](https://expo.github.io/router) to build native navigation using files in the `app/` directory.
 
-## Features
+## 🚀 How to use
 
-- Fetch captivating blog posts from other websites
-- Repost fetched content with your own touch
-- Secure authentication with Google login system
-- Manage and optimize your blogger blog effortlessly
-- Schedule posts for automated publishing
+```sh
+npx create-expo-app -e with-router
+```
+
+## 📝 Notes
+
+- [Expo Router: Docs](https://expo.github.io/router)
+- [Expo Router: Repo](https://github.com/expo/router)

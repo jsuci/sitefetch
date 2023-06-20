@@ -1,4 +1,20 @@
 {
-  "name": "sitefetch",
-  "displayName": "sitefetch"
+  "expo": {
+    "scheme": "acme",
+    "web": {
+      "bundler": "metro"
+    },
+    "name": "sitefetch",
+    "slug": "sitefetch",
+    "extra": {
+      "eas": {
+        "projectId": "4fe08701-e719-46db-be14-442d3c96514d"
+      }
+    },
+    "android": {
+      "package": "com.xorde.sitefetch",
+      "googleServicesFile": "./google-services.json"
+    },
+    "plugins": ["@react-native-google-signin/google-signin"]
+  }
 }
