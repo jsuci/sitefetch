@@ -30,6 +30,14 @@
           }
         },
         {
+          "client_id": "759507507122-t8cflslc5mac33q6s8kllbi42kmkusdg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.xorde.sitefetch",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
           "client_id": "759507507122-78dm3ij2mie3smcd6ou8iim6olc1v1s7.apps.googleusercontent.com",
           "client_type": 3
         }
