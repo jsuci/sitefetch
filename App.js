@@ -37,8 +37,8 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>Welcome to</Text>
-      <Text style={styles.heading}>Gianna</Text>
+      <Text style={styles.heading}>🚀</Text>
+      <Text style={styles.heading}>SiteFetch</Text>
       <Text style={styles.subHeading}>Please login</Text>
       <GoogleSigninButton
         style={styles.gSigninButton}
