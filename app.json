@@ -1,20 +1,36 @@
 {
   "expo": {
-    "scheme": "acme",
-    "web": {
-      "bundler": "metro"
-    },
+    "plugins": ["@react-native-google-signin/google-signin"],
     "name": "sitefetch",
     "slug": "sitefetch",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "googleServicesFile": "./google-services.json",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.xorde.sitefetch"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
     "extra": {
       "eas": {
         "projectId": "4fe08701-e719-46db-be14-442d3c96514d"
       }
-    },
-    "android": {
-      "package": "com.xorde.sitefetch",
-      "googleServicesFile": "./google-services.json"
-    },
-    "plugins": ["@react-native-google-signin/google-signin"]
+    }
   }
 }

@@ -7,14 +7,14 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:759507507122:android:14c0c73fc7724bb60b36ab",
+        "mobilesdk_app_id": "1:759507507122:android:abfa8bef2928ae580b36ab",
         "android_client_info": {
           "package_name": "com.xorde.sitefetch"
         }
       },
       "oauth_client": [
         {
-          "client_id": "759507507122-l434jivv6i86cuhd69dhoth8biiufdk3.apps.googleusercontent.com",
+          "client_id": "759507507122-n1ov6b922olkhn1ve5s33f7mqbk08qve.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.xorde.sitefetch",
@@ -22,7 +22,7 @@
           }
         },
         {
-          "client_id": "759507507122-tu02og34tpe1a5kb1eubkp5fv5cug0rh.apps.googleusercontent.com",
+          "client_id": "759507507122-o5v3m74crm7govfu5p5s92afloek5ja6.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.xorde.sitefetch",
