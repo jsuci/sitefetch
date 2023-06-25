@@ -1,12 +1,15 @@
 {
   "expo": {
-    "scheme": "sitefetch",
-    "plugins": ["@react-native-google-signin/google-signin"],
-    "android": {
-      "googleServicesFile": "./google-services.json"
-    },
+    "scheme": "acme",
     "web": {
       "bundler": "metro"
-    }
+    },
+    "name": "sitefetch",
+    "slug": "sitefetch",
+    "android": {
+      "package": "com.xorde.sitefetch",
+      "googleServicesFile": "./android/app/google-services.json"
+    },
+    "plugins": ["@react-native-google-signin/google-signin"]
   }
 }

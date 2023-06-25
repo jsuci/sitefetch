@@ -1,5 +1,6 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Pressable } from "react-native";
+import React, { useState, useEffect } from "react";
 import "expo-dev-client";
 
 import {
@@ -35,17 +36,56 @@ export default function App() {
       });
   };
 
+  const signOut = async () => {
+    try {
+      await GoogleSignin.signOut();
+      await GoogleSignin.revokeAccess();
+      setUser(null); // Remember to remove the user from your app's state as well
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  // Set an initializing state whilst Firebase connects
+  const [initializing, setInitializing] = useState(true);
+  const [user, setUser] = useState();
+
+  // Handle user state changes
+  function onAuthStateChanged(user) {
+    setUser(user);
+    if (initializing) setInitializing(false);
+  }
+
+  useEffect(() => {
+    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+    return subscriber; // unsubscribe on unmount
+  }, []);
+
+  if (initializing) return null;
+
+  if (!user) {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.heading}>🚀</Text>
+        <Text style={styles.heading}>SiteFetch</Text>
+        <Text style={styles.subHeading}>Please login</Text>
+        <GoogleSigninButton
+          style={styles.gSigninButton}
+          size={GoogleSigninButton.Size.Wide}
+          color={GoogleSigninButton.Color.Dark}
+          onPress={onGoogleButtonPress}
+        />
+      </View>
+    );
+  }
+
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>🚀</Text>
-      <Text style={styles.heading}>SiteFetch</Text>
-      <Text style={styles.subHeading}>Please login</Text>
-      <GoogleSigninButton
-        style={styles.gSigninButton}
-        size={GoogleSigninButton.Size.Wide}
-        color={GoogleSigninButton.Color.Dark}
-        onPress={onGoogleButtonPress}
-      />
+      <Text style={styles.heading}>Welcome 🎉</Text>
+      <Text style={styles.subHeading}>{user.displayName}</Text>
+      <Pressable style={styles.gSignoutButton} onPress={signOut}>
+        <Text style={styles.gSignoutButtonText}>Sign Out</Text>
+      </Pressable>
     </View>
   );
 }
@@ -68,5 +108,17 @@ const styles = StyleSheet.create({
   },
   gSigninButton: {
     marginTop: 20,
+  },
+  gSignoutButton: {
+    marginTop: 30,
+    backgroundColor: "blue",
+    padding: 10,
+  },
+  gSignoutButtonText: {
+    fontSize: 16,
+    lineHeight: 21,
+    fontWeight: "bold",
+    letterSpacing: 0.25,
+    color: "white",
   },
 });
