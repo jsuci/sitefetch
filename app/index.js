@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Pressable } from "react-native";
+import { StyleSheet, Text, View, Button } from "react-native";
 import React, { useState, useEffect } from "react";
 import "expo-dev-client";
 
@@ -11,6 +11,10 @@ import {
 import auth from "@react-native-firebase/auth";
 
 export default function App() {
+  // Set an initializing state whilst Firebase connects
+  const [initializing, setInitializing] = useState(true);
+  const [user, setUser] = useState();
+
   GoogleSignin.configure({
     webClientId:
       "759507507122-78dm3ij2mie3smcd6ou8iim6olc1v1s7.apps.googleusercontent.com",
@@ -31,24 +35,10 @@ export default function App() {
       .then((user) => {
         console.log(user);
       })
-      .cathc((err) => {
+      .catch((err) => {
         console.log(err);
       });
   };
-
-  const signOut = async () => {
-    try {
-      await GoogleSignin.signOut();
-      await GoogleSignin.revokeAccess();
-      setUser(null); // Remember to remove the user from your app's state as well
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  // Set an initializing state whilst Firebase connects
-  const [initializing, setInitializing] = useState(true);
-  const [user, setUser] = useState();
 
   // Handle user state changes
   function onAuthStateChanged(user) {
@@ -62,6 +52,15 @@ export default function App() {
   }, []);
 
   if (initializing) return null;
+
+  const signOut = async () => {
+    try {
+      await auth().signOut();
+      await GoogleSignin.revokeAccess();
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   if (!user) {
     return (
@@ -83,9 +82,7 @@ export default function App() {
     <View style={styles.container}>
       <Text style={styles.heading}>Welcome 🎉</Text>
       <Text style={styles.subHeading}>{user.displayName}</Text>
-      <Pressable style={styles.gSignoutButton} onPress={signOut}>
-        <Text style={styles.gSignoutButtonText}>Sign Out</Text>
-      </Pressable>
+      <Button title="Sign Out" onPress={signOut} />
     </View>
   );
 }
