@@ -8,12 +8,11 @@ import {
   GoogleSigninButton,
   statusCodes,
 } from "@react-native-google-signin/google-signin";
-import auth from "@react-native-firebase/auth";
+import auth, { FirebaseAuthTypes } from "@react-native-firebase/auth";
 
 export default function App() {
-  // Set an initializing state whilst Firebase connects
-  const [initializing, setInitializing] = useState(true);
-  const [user, setUser] = useState();
+  const [initializing, setInitializing] = useState<boolean>(true);
+  const [user, setUser] = useState<FirebaseAuthTypes.User | null>(null);
 
   GoogleSignin.configure({
     webClientId:
@@ -21,15 +20,9 @@ export default function App() {
   });
 
   const onGoogleButtonPress = async () => {
-    // Check if your device supports Google Play
     await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
-    // Get the users ID token
     const { idToken } = await GoogleSignin.signIn();
-
-    // Create a Google credential with the token
     const googleCredential = auth.GoogleAuthProvider.credential(idToken);
-
-    // Sign-in the user with the credential
     const userSignedIn = auth().signInWithCredential(googleCredential);
     userSignedIn
       .then((user) => {
@@ -40,8 +33,7 @@ export default function App() {
       });
   };
 
-  // Handle user state changes
-  function onAuthStateChanged(user) {
+  function onAuthStateChanged(user: FirebaseAuthTypes.User | null) {
     setUser(user);
     if (initializing) setInitializing(false);
   }
