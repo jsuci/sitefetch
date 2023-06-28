@@ -1,7 +1,10 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet, Text, View, Button, AppRegistry } from "react-native";
 import React, { useState, useEffect } from "react";
 import "expo-dev-client";
+import Dashboard from "./dashboard";
+
+import { PaperProvider } from "react-native-paper";
 
 import {
   GoogleSignin,
@@ -70,14 +73,17 @@ export default function App() {
     );
   }
 
-  return (
-    <View style={styles.container}>
-      <Text style={styles.heading}>Welcome 🎉</Text>
-      <Text style={styles.subHeading}>{user.displayName}</Text>
-      <Button title="Sign Out" onPress={signOut} />
-    </View>
-  );
+  // return (
+  //   <View style={styles.container}>
+  //     <Text style={styles.heading}>Welcome 🎉</Text>
+  //     <Text style={styles.subHeading}>{user.displayName}</Text>
+  //     <Button title="Sign Out" onPress={signOut} />
+  //   </View>
+  // );
+  return <Dashboard />;
 }
+
+AppRegistry.registerComponent("sitefetch", () => App);
 
 const styles = StyleSheet.create({
   container: {
