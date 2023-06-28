@@ -6,9 +6,14 @@
     },
     "name": "sitefetch",
     "slug": "sitefetch",
+    "extra": {
+      "eas": {
+        "projectId": "4fe08701-e719-46db-be14-442d3c96514d"
+      }
+    },
     "android": {
-      "package": "com.xorde.sitefetch",
-      "googleServicesFile": "./android/app/google-services.json"
+      "googleServicesFile": "./google-services.json",
+      "package": "com.xorde.sitefetch"
     },
     "plugins": ["@react-native-google-signin/google-signin"]
   }
