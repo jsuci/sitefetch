@@ -1,4 +1,4 @@
-import { ScrollView, Text } from "react-native";
+import { ScrollView, Text, TouchableOpacity } from "react-native";
 import firestore from "@react-native-firebase/firestore";
 import { Appbar, TextInput, Button } from "react-native-paper";
 import React, { useState } from "react";
@@ -24,7 +24,9 @@ const Dashboard = () => {
         <Text>List of TODOs!</Text>
       </ScrollView>
       <TextInput label={"New Todo"} value={todo} onChangeText={setTodo} />
-      <Button onPress={addTodo}>Add TODO</Button>
+      <TouchableOpacity onPress={addTodo}>
+        <Text>Add TODO</Text>
+      </TouchableOpacity>
     </>
   );
 };
